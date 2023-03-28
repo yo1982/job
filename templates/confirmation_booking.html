@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Booking Confirmation</title>
+  </head>
+  <body>
+    <h1>Booking Confirmation</h1>
+    <p>Thank you for your booking. Here are your booking details:</p>
+    <ul>
+      <form method="POST" action="{{ url_for('process_book_car_form') }}">
+      <li><strong>Customer name:</strong> {{ booking[1] }}</li>
+      <li><strong>Car type:</strong> {{ booking[2] }}</li>
+      <li><strong>Pickup date:</strong> {{ booking[3] }}</li>
+      <li><strong>Return date:</strong> {{ booking[4] }}</li>
+      <li><strong>Pickup location:</strong> {{ booking[5] }}</li>
+      <li><strong>Return location:</strong> {{ booking[6] }}</li>
+      <li><strong>Price:</strong> {{ booking[7] }}</li>
+      <li><strong>Payment method:</strong> {{ booking[8] }}</li>
+    </form>
+    </ul>
+    <form method="POST" action="{{ url_for('pay_invoice') }}">
+            <input type="hidden" name="customer_name" value="{{ booking[1] }}">
+            <input type="hidden" name="car_type" value="{{ booking[2] }}">
+            <input type="hidden" name="pickup_date" value="{{ booking[3] }}">
+            <input type="hidden" name="return_date" value="{{ booking[4] }}">
+            <input type="hidden" name="pickup_location" value="{{ booking[5] }}">
+            <input type="hidden" name="return_location" value="{{ booking[6] }}">
+            <input type="hidden" name="price" value="{{ booking[7] }}">
+            <input type="hidden" name="payment_method" value="{{ booking[8] }}">
+            <button type="submit">Pay</button>
+    </form>
+  </body>
+</html>

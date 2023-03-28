@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Customer</title>
+</head>
+<body>
+    <h1>Delete Customer</h1>
+    <p>Are you sure you want to delete this customer?</p>
+    <form action="{{ url_for('delete_customer_post') }}" method="post">
+        <label for="customer_id">Customer ID:</label>
+        <input type="number" id="customer_id" name="customer_id" value="{{ customer[0] }}"><br>
+        <button type="submit">Delete</button>
+    
+    </form>
+</body>
+</html>
+

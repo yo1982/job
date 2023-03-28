@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Employee Page</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+        color: #333;
+      }
+
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+      }
+
+      li {
+        float: left;
+      }
+
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      li a:hover {
+        background-color: #111;
+      }
+
+      h2 {
+        margin-top: 50px;
+        color: #333;
+      }
+
+      form {
+        margin-top: 20px;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        text-align: left;
+        padding: 8px;
+      }
+
+      th {
+        background-color: #333;
+        color: white;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      input[type="submit"] {
+        background-color: #333;
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #111;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Employee Page</h1>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/daily-report">Daily Report</a></li>
+    </ul>
+    <div id="customer-info">
+      <h2>Customer Information</h2>
+      <ul>
+        <li><a href="/add_customer">Add Customer</a></li>
+        <li><a href="/update-customer">Update Customer</a></li>
+        <li><a href="/delete-customer">Delete Customer</a></li>
+        <li><a href="/get-customer">Get Customer</a></li>
+      </ul>
+    </div>
+    <div id="daily-report">
+      <form method="post">
+        <input type="hidden" name="action" value="car_status">
+        <input type="submit" value="Show Car List">
+      </form>
+      {% if cars %}
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Type</th>
+            <th>Availability</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for car in cars %}
+          <tr>
+            <td>{{ car[0] }}</td>
+            <td>{{ car[1] }}</td>
+            <td>{{ car[2] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% endif %}
+    </div>
+  </body>
+</html>
+
+
+

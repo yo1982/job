@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Customer Results</title>
+  </head>
+  <body>
+    <h1>Customer Results</h1>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/employee">Car Status</a></li>
+      <li><a href="/booking">Booking</a></li>
+      <li><a href="/customers">Customers</a></li>
+    </ul>
+    <hr>
+    {% if customers %}
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for customer in customers %}
+        <tr>
+            <td>{{ customer[0] }}</td>
+            <td>{{ customer[1] }}</td>
+            <td>{{ customer[2] }}</td>
+            <td>{{ customer[3] }}</td>
+            <td>{{ customer[4] }}</td>
+            <td>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p>No customers found.</p>
+    {% endif %}
+  </body>
+</html>
