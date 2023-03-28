@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vans</title>
+	<style>
+		body {
+			background-color: #f5f5f5;
+			font-family: Arial, sans-serif;
+			color: #333;
+		}
+		h1 {
+			text-align: center;
+			font-size: 36px;
+			margin-top: 50px;
+			margin-bottom: 50px;
+			color: #008080;
+		}
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+		}
+		li {
+			display: inline-block;
+			margin-right: 20px;
+		}
+		li:last-child {
+			margin-right: 0;
+		}
+		a {
+			display: block;
+			color: #333;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+		}
+		a:hover {
+			background-color: #ddd;
+		}
+		img {
+			display: block;
+			margin: 0 auto;
+			max-width: 100%;
+			height: auto;
+			margin-top: 50px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Vans</h1>
+	<ul>
+		<li><a href="/vans">Vans</a></li>
+	</ul>
+	{% if vans %}
+		{% for van in vans %}
+			<p>{{ van }}</p>
+		{% endfor %}
+	{% else %}
+		<p>No vans available.</p>
+	{% endif %}
+
+	<img src="{{ url_for('static', filename='ford.jpg') }}" alt="Ford Van">
+</body>
+</html

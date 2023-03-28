@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Book Car</title>
+</head>
+<body>
+    <h1>Book a Car</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flashes">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <form method="post" action="{{ url_for('process_book_car_form') }}">
+        <label for="customer_name">Customer Name:</label>
+        <input type="text" id="customer_name" name="customer_name" required>
+
+        <br><br>
+
+        <label for="car_type">Car Type:</label>
+        <select id="car_type" name="car_type" required>
+            <option value="">--Please select a car type--</option>
+            <option value="small">Small Car ($50/day)</option>
+            <option value="family">Family Car ($80/day)</option>
+            <option value="van">Van ($120/day)</option>
+        </select>
+
+        <br><br>
+
+        <label for="pickup_date">Pickup Date:</label>
+        <input type="date" id="pickup_date" name="pickup_date" required>
+
+        <br><br>
+
+        <label for="return_date">Return Date:</label>
+        <input type="date" id="return_date" name="return_date" required>
+
+        <br><br>
+
+        <label for="pickup_location">Pickup Location:</label>
+        <input type="text" id="pickup_location" name="pickup_location" required>
+
+        <br><br>
+
+        <label for="return_location">Return Location:</label>
+        <input type="text" id="return_location" name="return_location" required>
+
+        <br><br>
+
+        <label for="price">Price:</label>
+        <span id="price">{{ price }}</span>
+
+        <br><br>
+        <div class="form-group">
+            <label for="payment_method">Payment Method:</label>
+            <select class="form-control" id="payment_method" name="payment_method">
+                <option value="Credit Card">Credit Card</option>
+                <option value="PayPal">PayPal</option>
+                <option value="Cash">Cash</option>
+            </select>
+        </div>
+
+        <input type="submit" value="Book">
+    </form>
+</body>
+</html>
+

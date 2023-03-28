@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Customer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+    <h1>Update Customer</h1>
+
+    <form method="POST" action="{{ url_for('update_customer_post') }}">
+
+        <label for="customer_id">Customer ID:</label>
+        <input type="number" id="customer_id" name="customer_id" value="{{ customer[0] }}"><br>
+
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" value="{{ customer[1] }}"><br>
+
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name" value="{{ customer[2] }}"><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="{{ customer[3] }}"><br>
+
+        <label for="phone_number">Phone Number:</label>
+        <input type="text" id="phone_number" name="phone_number" value="{{ customer[4] }}"><br>
+
+        <input type="submit" value="Update">
+    </form>
+
+</body>
+</html>
