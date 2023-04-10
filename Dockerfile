@@ -12,6 +12,7 @@ COPY requirements.txt .
 # Install any needed packages specified in requirements.txt
 RUN pip install --trusted-host pypi.python.org -r requirements.txt
 RUN pip install flask
+RUN pip install flask-mysqldb
 
 
 # Copy the rest of the repository files to the working directory
