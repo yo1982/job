@@ -12,10 +12,7 @@ import csv
 import io
 from io import StringIO
 from flask import make_response
-from flask_migrate import Migrate
-from app import app, db
 
-migrate = Migrate(app, db)
 
 
 app = Flask(__name__)
@@ -441,7 +438,10 @@ def get_dates():
 
 
 
+from flask_migrate import Migrate
+from app import app, db
 
+migrate = Migrate(app, db)
 
    
 
