@@ -15,6 +15,8 @@ from flask import make_response
 
 
 
+
+
 app = Flask(__name__)
 
 app.secret_key = 'chess#8'
@@ -438,10 +440,6 @@ def get_dates():
 
 
 
-from flask_migrate import Migrate
-from app import app, db
-
-migrate = Migrate(app, db)
 
    
 
